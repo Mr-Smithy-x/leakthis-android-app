@@ -27,11 +27,14 @@ def debug_url = project.ext.debug_base_url
 def local_url = project.ext.local_base_url
 def preferences = project.ext.preferences
 def db = project.ext.db
+def prodKeyStore = project.ext.prodkeyStore
 
 android {
+    signingConfigs {
+        production prodKeyStore
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
-
     defaultConfig {
         applicationId "nyc.vonley.leakthis"
         minSdkVersion 26
@@ -43,6 +46,7 @@ android {
 
     buildTypes {
         release {
+            signingConfig signingConfigs.production
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", sprintf('"%s"', production_url))

@@ -3,3 +3,10 @@ project.ext.prod_base_url = "http://leakthis.prod"
 project.ext.local_base_url = "http://leakthis.local"
 project.ext.preferences = "default.preferences"
 project.ext.db = "default.db"
+
+project.ext.prodkeyStore = {
+    storeFile file('your_signed_key.ks')
+    storePassword 'password'
+    keyAlias 'alias'
+    keyPassword 'password'
+}

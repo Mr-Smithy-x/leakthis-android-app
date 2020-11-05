@@ -1,0 +1,57 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="editTextStyle">@style/MonserratEditTextStyle</item>
+        <item name="android:editTextStyle">@style/MonserratEditTextStyle</item>
+        <item name="android:textViewStyle">@style/MonserratTextViewStyle</item>
+        <item name="android:buttonStyle">@style/MonserratButtonStyle</item>
+        <item name="buttonStyle">@style/MonserratButtonStyle</item>
+    </style>
+
+
+    <style name="AppTheme.WithActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="editTextStyle">@style/MonserratEditTextStyle</item>
+        <item name="android:editTextStyle">@style/MonserratEditTextStyle</item>
+        <item name="android:textViewStyle">@style/MonserratTextViewStyle</item>
+        <item name="android:buttonStyle">@style/MonserratButtonStyle</item>
+        <item name="buttonStyle">@style/MonserratButtonStyle</item>
+    </style>
+
+
+    <style name="MonserratEditTextStyle" parent="android:Widget.EditText">
+        <item name="android:fontFamily">@font/monserrat_font_family</item>
+    </style>
+
+    <style name="MonserratTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/monserrat_font_family</item>
+    </style>
+
+    <style name="MonserratButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">@font/monserrat_font_family</item>
+    </style>
+
+    <style name="Marquee" parent="android:Widget.TextView">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>

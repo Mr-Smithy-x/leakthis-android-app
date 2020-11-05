@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="SubjectView">
+        <attr name="subject" format="string|reference" />
+        <attr name="android:text" format="string|reference" />
+        <attr name="android:textColor" format="color|reference"/>
+    </declare-styleable>
+</resources>

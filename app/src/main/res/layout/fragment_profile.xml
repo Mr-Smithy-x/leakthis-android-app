@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/semi_dark_color"
+    android:orientation="vertical"
+    tools:context=".ui.main.profile.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/semi_dark_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/fragment_profile_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#333333"
+            android:padding="16dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fragment_profile_avatar"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginEnd="16dp"
+                tools:src="@mipmap/avatar" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/fragment_profile_avatar">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fragment_profile_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/monserrat_font_family"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="Mr Smithy x" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fragment_profile_user_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fragment_profile_username"
+                    android:fontFamily="@font/monserrat_font_family"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:text="Member" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_profile_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            tools:text="@string/lorem_ipsum" />
+
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Location:"
+            tools:text="New York City, New York" />
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_website"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Website:"
+            tools:text="google.com" />
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_instagram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Instagram:"
+            tools:text="Sample" />
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_reddit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Reddit:"
+            tools:text="Sample" />
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_discord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Discord:"
+            tools:text="Sample" />
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_lastfm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Last.FM:"
+            tools:text="Sample" />
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_skype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Skype:"
+            tools:text="Sample" />
+
+        <nyc.vonley.leakthis.views.SubjectView
+            android:id="@+id/fragment_profile_twitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:subject="Twitter:"
+            tools:text="Sample" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

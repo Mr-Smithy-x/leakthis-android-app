@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_svg_infinity"
+        android:title="@string/title_home"
+        app:exb_color="@color/white"
+        />
+        -->
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_svg_infinity"
+        android:title="Dashboard"
+        app:exb_color="@color/white"
+        />
+
+    <item
+        android:id="@+id/navigation_conversation"
+        android:icon="@drawable/ic_svg_pencil_1"
+        android:title="Inbox"
+        app:exb_color="@color/white"
+        />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_svg_user_2"
+        android:title="Profile"
+
+        app:exb_color="@color/white"
+        />
+
+
+</menu>

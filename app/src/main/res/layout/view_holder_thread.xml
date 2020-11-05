@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view_holder_thread_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cardBackgroundColor="#333333"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="1dp"
+        app:cardPreventCornerOverlap="true"
+        app:contentPadding="12dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/view_holder_thread_top_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/view_holder_thread_user_avatar"
+                    android:layout_width="32dp"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="1dp"
+                    android:layout_height="32dp"
+                    android:layout_alignBaseline="@id/view_holder_thread_top"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:src="@mipmap/avatar" />
+
+                <LinearLayout
+                    android:id="@+id/view_holder_thread_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/view_holder_thread_user_avatar"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/view_holder_thread_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textFontWeight="600"
+                        tools:text="Mr Smithy x" />
+
+
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/view_holder_thread_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/view_holder_thread_top"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="10sp"
+                    android:textStyle="italic"
+                    tools:text="Today 2:48am" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_holder_thread_top_header">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/view_holder_thread_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:padding="0dp"
+                    android:textColor="@color/white"
+                    android:textColorLink="@color/leakthis_pastel_red"
+                    android:textColorHint="@color/gray_600"
+                    android:textColorHighlight="@color/orange"
+                    android:textFontWeight="500"
+                    android:textSize="12sp"
+                    tools:text="@string/sample" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

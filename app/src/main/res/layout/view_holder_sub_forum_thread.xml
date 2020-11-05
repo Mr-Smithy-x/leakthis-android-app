@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_holder_sub_forum_thread_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/semi_dark_color"
+    android:drawablePadding="8dp"
+    android:paddingLeft="@dimen/list_item_spacing"
+    android:paddingTop="@dimen/list_item_spacing_half"
+    android:paddingRight="@dimen/list_item_spacing"
+    android:paddingBottom="@dimen/list_item_spacing_half"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+    android:textColor="@color/white"
+    app:drawableStartCompat="@drawable/ic_svg_speech_bubble_3"
+    app:drawableTint="@color/white"
+    tools:text="Hello" />

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    tools:background="@color/semi_dark_color"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_holder_sub_threads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:drawableTint="@color/white"
+        android:drawablePadding="8dp"
+        android:drawableStart="@drawable/ic_svg_speech_bubble_3"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:text="Hip-Hop Leaks" />
+</LinearLayout>

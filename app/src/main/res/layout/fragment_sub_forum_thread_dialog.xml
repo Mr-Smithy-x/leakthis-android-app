@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/semi_dark_color">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fragment_sub_forum_thread_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@color/leakthis_pastel_red"
+        android:textSize="32sp"
+        android:textFontWeight="600"
+        tools:text="Welcome" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_sub_forum_thread_dialog_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragment_sub_forum_thread_dialog_title"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/list_item_spacing_half"
+        android:paddingBottom="@dimen/list_item_spacing_half"
+        tools:context=".ui.main.dashboard.dialog.SubForumThreadDialogFragment"
+        tools:listitem="@layout/view_holder_sub_forum_thread" />
+</RelativeLayout>

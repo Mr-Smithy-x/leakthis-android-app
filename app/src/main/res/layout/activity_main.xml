@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/activity_main_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/semi_dark_color">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/activity_main_logo"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:layout_marginEnd="8dp"
+            app:srcCompat="@mipmap/leakthis_logo" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/activity_main_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:layout_marginEnd="8dp"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_svg_alarm" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/activity_main_avatar"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="4dp"
+            android:padding="6dp"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/white"
+            android:layout_toStartOf="@id/activity_main_notifications"
+            android:src="@mipmap/avatar" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_toStartOf="@id/activity_main_avatar"
+            android:layout_toEndOf="@id/activity_main_logo">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/activity_main_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:fontFamily="@font/monserrat_font_family"
+                tools:text="Mr Smithy x" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/activity_main_user_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/activity_main_username"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                tools:fontFamily="@font/monserrat_font_family"
+                tools:text="New Member" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:background="@color/dark_gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/semi_dark_color"
+            android:padding="8dp"
+            android:layout_alignParentBottom="true"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/bottom_nav_menu" />
+
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            android:layout_above="@id/nav_view"
+            app:navGraph="@navigation/mobile_navigation" />
+
+    </RelativeLayout>
+</LinearLayout>

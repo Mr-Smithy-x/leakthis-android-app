@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/semi_dark_color"
+    android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".ui.main.thread.ThreadActivity">
+
+    <LinearLayout
+        android:id="@+id/activity_thread_section_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_thread_section_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="900"
+            android:textColor="@color/leakthis_pastel_red"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            tools:text="Hip-Hop Leaks" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_thread_section_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="400"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            tools:text="Hip Hop leaks only. Any threads that aren't a direct song leak should go in hip-hop discussion or another relevant section." />
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/activity_thread_section_split"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/activity_thread_section_header"
+        android:background="#444444" />
+
+    <RelativeLayout
+        android:layout_below="@id/activity_thread_section_split"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/activity_thread_message_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/semi_dark_color"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/activity_thread_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circular_edittext"
+                android:backgroundTint="@color/dark_gray"
+                android:drawableStart="@drawable/ic_svg_speech_bubble_3"
+                android:drawablePadding="12dp"
+                android:drawableTint="#888888"
+                android:gravity="top"
+                android:hint="@string/write_comment_here"
+                android:imeActionLabel="Send"
+                android:imeOptions="actionSend"
+                android:maxLines="3"
+                android:paddingEnd="56dp"
+                android:textColor="@color/white"
+                android:textColorHint="#666666" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/activity_thread_send_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/circular_button"
+                android:backgroundTint="@color/gray_600"
+                android:padding="8dp"
+                android:src="@drawable/ic_svg_paper_plane"
+                android:tint="@color/white" />
+
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_thread_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/activity_thread_message_container"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/view_holder_thread" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

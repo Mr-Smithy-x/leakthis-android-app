@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/semi_dark_color"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".ui.login.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/login_logo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="@drawable/fade_color"
+                android:scaleType="centerInside"
+                app:srcCompat="@mipmap/leakthis_logo" />
+
+            <!--
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login_hello_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/chefsm_exclamation"
+                android:textStyle="bold"
+                android:textFontWeight="900"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="72sp" />
+                -->
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="56dp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_email_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/circular_edittext"
+                android:hint="@string/email"
+                android:backgroundTint="#333333"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_svg_user_2"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                tools:text="beta@leakth.is" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_password_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_email_view"
+                android:drawablePadding="8dp"
+                android:backgroundTint="#333333"
+                android:drawableStart="@drawable/ic_svg_padlock"
+                android:background="@drawable/circular_edittext"
+                android:hint="@string/password"
+                android:drawableTint="@color/white"
+                android:inputType="textWebPassword"
+                android:textColor="@color/white"
+                tools:text="Password" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login_as_guest_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_password_view"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:text="@string/sign_in_as_guest"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_button_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_as_guest_view"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/circular_button"
+                android:drawableEnd="@drawable/ic_svg_login_1"
+                android:drawablePadding="-32dp"
+                android:drawableTint="@color/white"
+                android:paddingStart="16dp"
+                android:backgroundTint="#883333"
+                android:paddingEnd="16dp"
+                android:text="@string/sign_in"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/login_apple_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/invisible_btn"
+                    android:src="@drawable/ic_svg_facebook" />
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/login_insta_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/invisible_btn"
+                    android:src="@drawable/ic_svg_instagram" />
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/login_tumblr_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/invisible_btn"
+                    android:src="@drawable/ic_svg_tumblr" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textFontWeight="700"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:layout_alignParentLeft="true"
+            android:padding="18dp"
+            android:text="@string/slogan_text"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

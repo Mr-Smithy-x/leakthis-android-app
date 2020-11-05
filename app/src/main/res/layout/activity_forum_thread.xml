@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/semi_dark_color"
+    android:orientation="vertical"
+    tools:context=".ui.main.forum.ForumThreadActivity">
+
+    <LinearLayout
+        android:id="@+id/activity_forum_thread_section_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_forum_thread_section_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="900"
+            android:textColor="@color/leakthis_pastel_red"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            tools:text="Hip-Hop Leaks" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_forum_thread_section_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="400"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            tools:text="Hip Hop leaks only. Any threads that aren't a direct song leak should go in hip-hop discussion or another relevant section." />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_forum_thread_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/activity_forum_thread_section_header"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/view_holder_forum_thread" />
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    android:orientation="vertical"
+    app:cardBackgroundColor="#111"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="6dp"
+    app:cardMaxElevation="8dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    tools:context=".ui.main.notification.NotificationPopupWindow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#111"
+        android:orientation="vertical"
+        tools:context=".ui.main.notification.NotificationPopupWindow">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#111"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="Recent Notifications"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#333333" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/popup_window_notification_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listitem="@layout/popup_view_holder_notification" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/leakthis_pastel_red_dark"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="See All Notifications"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

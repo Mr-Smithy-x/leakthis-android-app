@@ -1,0 +1,18 @@
+project.ext.routes = [
+        "conversations" : "/test/leakthis/conversations",
+        "conversations_id" : "/test/leakthis/conversations/{conversation_id}",
+        "conversations_id_reply" : "/test/leakthis/conversations/{conversation_id}/reply",
+        "auth_login" : "/test/auth/login",
+        "auth_guest" : "/test/auth/guest",
+        "auth_guest_login" : "/test/auth/guest/login",
+        "auth_refresh" : "/test/auth/refresh",
+        "auth_register" : "/test/auth/register",
+        "leakthis_login" : "/test/leakthis/login",
+        "leakthis_logout" : "/test/leakthis/logout",
+        "leakthis_forums" : "/test/leakthis/forums",
+        "leakthis_forums_id" : "/test/leakthis/forums/{forum_id}",
+        "leakthis_threads_id" : "/test/leakthis/threads/{thread_id}",
+        "leakthis_threads_id_reply" : "/test/leakthis/threads/{thread_id}/reply",
+        "leakthis_threads_id_reply_post_id" : "/test/leakthis/threads/{thread_id}/reply/{post_id}",
+        "leakthis_users_id" : "/test/leakthis/users/{user_id}"
+]

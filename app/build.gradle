@@ -1,0 +1,147 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'dagger.hilt.android.plugin'
+}
+
+def config = new File("core/config.gradle")
+def routes = new File("core/routes.gradle")
+
+if (routes.exists()) {
+    apply from: '../core/routes.gradle'
+} else {
+    apply from: 'routes.gradle'
+}
+
+if (config.exists()) {
+    apply from: '../core/config.gradle'
+} else {
+    apply from: 'config.gradle'
+}
+
+def defined_routes = project.ext.routes
+def production_url = project.ext.prod_base_url
+def debug_url = project.ext.debug_base_url
+def local_url = project.ext.local_base_url
+def preferences = project.ext.preferences
+def db = project.ext.db
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "nyc.vonley.leakthis"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", sprintf('"%s"', production_url))
+            buildConfigField("String", "PREFERENCE_FILE", sprintf('"%s"', preferences))
+            buildConfigField("String", "DATABASE_FILE", sprintf('"%s"', db))
+            defined_routes.each({ k, v ->
+                buildConfigField("String", "ROUTE_" + k.toUpperCase(), sprintf('"%s"', v))
+            })
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", sprintf('"%s"', debug_url))
+            buildConfigField("String", "PREFERENCE_FILE", sprintf('"%s"', preferences))
+            buildConfigField("String", "DATABASE_FILE", sprintf('"%s"', db))
+            defined_routes.each({ k, v ->
+                buildConfigField("String", "ROUTE_" + k.toUpperCase(), sprintf('"%s"', v))
+            })
+        }
+        local {
+            buildConfigField("String", "BASE_URL", sprintf('"%s"', local_url))
+            buildConfigField("String", "PREFERENCE_FILE", sprintf('"%s"', preferences))
+            buildConfigField("String", "DATABASE_FILE", sprintf('"%s"', db))
+            defined_routes.each({ k, v ->
+                buildConfigField("String", "ROUTE_" + k.toUpperCase(), sprintf('"%s"', v))
+            })
+        }
+    }
+
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    implementation 'androidx.room:room-runtime:2.2.5'
+    implementation "com.google.code.gson:gson:2.8.6"
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:retrofit-converters:2.8.1"
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation 'com.github.st235:expandablebottombar:1.2.4'
+    implementation 'com.google.dagger:hilt-android:2.29.1-alpha'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'org.jsoup:jsoup:1.13.1'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'javax.inject:javax.inject:1'
+    implementation 'net.danlew:android.joda:2.10.7.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+
+    kapt 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
+    kaptTest 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'com.google.dagger:hilt-android-testing:2.29.1-alpha'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.29.1-alpha'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    // For local unit tests
+
+}
+kapt {
+    correctErrorTypes true
+}

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">LeakTh.is</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_conversation">Inbox</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_activity_login">Leakthis</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="sign_in">Sign In</string>
+    <string name="profile">Profile</string>
+    <string name="recipe">Recipe</string>
+    <string name="slogan_text">v0.0.1 Mr Smithy x</string>
+    <string name="chefsm_exclamation">++</string>
+    <string name="communities">Communities</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="curated">Curated</string>
+    <string name="title_community">Community</string>
+    <string name="title_recipe">Recipe</string>
+    <string name="sample">I’ve been lurking on this forum since juice passed just to get his music and realized how dope this community was so bare with me. I know to non-devs this picture looks like gibberish but I know devs would appreciate it…</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus in ornare quam viverra. Eu scelerisque felis imperdiet proin fermentum leo. Sed vulputate mi sit amet mauris commodo quis. In nulla posuere sollicitudin aliquam ultrices sagittis.</string>
+    <string name="sign_in_as_guest">Sign in as guest</string>
+    <string name="messages">Messages</string>
+    <string name="send_message_here">Send Message Here</string>
+    <string name="write_comment_here">Write comment here</string>
+</resources>

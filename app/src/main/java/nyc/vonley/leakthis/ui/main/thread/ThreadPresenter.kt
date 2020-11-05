@@ -24,7 +24,9 @@ class ThreadPresenter @Inject constructor(
                     }
                 }
             }catch (e: Exception){
-                e.printStackTrace()
+                withContext(Dispatchers.Main) {
+                    view.onError(e)
+                }
             }
         }
     }
@@ -32,12 +34,10 @@ class ThreadPresenter @Inject constructor(
     override fun comment(id: Int, comment: String, post_id: Int) {
         launch {
             try {
-
                 val response = if(post_id <= 0)
                     service.postComment(thread_id = id, comment = comment)
                 else
                     service.postComment(thread_id = id, post_id = post_id, comment = comment)
-
                 withContext(Dispatchers.Main) {
                     if(response.isSuccessful){
                         response.body()?.data?.let { view.onPostSubmitted(it) }
@@ -46,7 +46,9 @@ class ThreadPresenter @Inject constructor(
                     }
                 }
             }catch (e: Exception){
-                view.onError(e)
+                withContext(Dispatchers.Main) {
+                    view.onError(e)
+                }
             }
         }
     }

@@ -16,11 +16,11 @@ interface ThreadService {
     @FormUrlEncoded
     @POST(ROUTE_LEAKTHIS_THREADS_ID_REPLY)
     @Headers("Content-Type: application/json", "Accept: application/json")
-    suspend fun postComment(@Path("thread_id") thread_id: Int, @Field("comment") comment: String): Response<LeakThisResponse<LeakThisForum.ThreadPost, Any>>
+    suspend fun postComment(@Path("thread_id") thread_id: Int, @Field("comment") comment: String): Response<LeakThisResponse<ArrayList<LeakThisForum.ThreadPost>, Any>>
 
     @POST(ROUTE_LEAKTHIS_THREADS_ID_REPLY_POST_ID)
     @Headers("Content-Type: application/json", "Accept: application/json")
-    suspend fun postComment(@Path("thread_id") thread_id: Int, @Path("post_id") post_id: Int, @Field("comment") comment: String): Response<LeakThisResponse<LeakThisForum.ThreadPost, Any>>
+    suspend fun postComment(@Path("thread_id") thread_id: Int, @Path("post_id") post_id: Int, @Field("comment") comment: String): Response<LeakThisResponse<ArrayList<LeakThisForum.ThreadPost>, Any>>
 
 
 }

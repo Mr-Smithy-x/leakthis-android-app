@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import nyc.vonley.leakthis.BuildConfig.BASE_URL
+import nyc.vonley.leakthis.BuildConfig.*
 import nyc.vonley.leakthis.di.annotations.*
 import nyc.vonley.leakthis.di.network.AuthInterceptor
 import nyc.vonley.leakthis.di.network.GuestInterceptor
@@ -29,17 +29,21 @@ object NetworkModule {
     fun provideAuthInterceptor(
         @SharedPreferenceStorage manager: SharedPreferenceManager
     ): OkHttpClient {
-        val client = OkHttpClient.Builder()
+        val builder = OkHttpClient.Builder()
             .authenticator(OAuth2Authenticator(manager))
             .addInterceptor(AuthInterceptor(manager))
-            .addInterceptor(HttpLoggingInterceptor().also { it.level = HttpLoggingInterceptor.Level.HEADERS })
-            .addInterceptor(HttpLoggingInterceptor().also { it.level = HttpLoggingInterceptor.Level.BODY })
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(15, TimeUnit.SECONDS)
             .writeTimeout(15, TimeUnit.SECONDS)
             .cache(Cache(Environment.getDownloadCacheDirectory(), (20 * 1024 * 1024).toLong()))
-            .build()
-        return client;
+        if (LOG) {
+            builder.addInterceptor(HttpLoggingInterceptor().also {
+                it.level = HttpLoggingInterceptor.Level.HEADERS
+            }).addInterceptor(HttpLoggingInterceptor().also {
+                it.level = HttpLoggingInterceptor.Level.BODY
+            })
+        }
+        return builder.build()
     }
 
     @GuestInterceptorOkHttpClient
@@ -47,15 +51,20 @@ object NetworkModule {
     fun provideGuestInterceptor(
         @SharedPreferenceStorage manager: SharedPreferenceManager
     ): OkHttpClient {
-        return OkHttpClient.Builder()
+        val builder = OkHttpClient.Builder()
             .addInterceptor(GuestInterceptor(manager))
-            .addInterceptor(HttpLoggingInterceptor().also { it.level = HttpLoggingInterceptor.Level.HEADERS })
-            .addInterceptor(HttpLoggingInterceptor().also { it.level = HttpLoggingInterceptor.Level.BODY })
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(15, TimeUnit.SECONDS)
             .writeTimeout(15, TimeUnit.SECONDS)
             .cache(Cache(Environment.getDownloadCacheDirectory(), (20 * 1024 * 1024).toLong()))
-            .build()
+        if (LOG) {
+            builder.addInterceptor(HttpLoggingInterceptor().also {
+                it.level = HttpLoggingInterceptor.Level.HEADERS
+            }).addInterceptor(HttpLoggingInterceptor().also {
+                it.level = HttpLoggingInterceptor.Level.BODY
+            })
+        }
+        return builder.build()
     }
 
 
@@ -71,12 +80,12 @@ object NetworkModule {
                     GsonBuilder()
                         .setLenient()
                         .setDateFormat("yyyy-MM-dd HH:mm:ss")
-                        .create())
+                        .create()
+                )
             )
             .client(okHttpClient)
             .build()
     }
-
 
 
     @Provides
@@ -91,7 +100,8 @@ object NetworkModule {
                     GsonBuilder()
                         .setLenient()
                         .setDateFormat("yyyy-MM-dd HH:mm:ss")
-                        .create())
+                        .create()
+                )
             )
             .client(okHttpClient)
             .build()

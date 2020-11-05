@@ -23,7 +23,9 @@ class DashboardPresenter @Inject constructor(
                     }
                 }
             }catch (e: Exception){
-                e.printStackTrace()
+                withContext(Dispatchers.Main) {
+                    view.onError(e)
+                }
             }
         }
     }

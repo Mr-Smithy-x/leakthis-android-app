@@ -4,6 +4,7 @@ import android.util.Log
 import com.bumptech.glide.load.Options
 import com.bumptech.glide.load.model.*
 import com.bumptech.glide.load.model.stream.BaseGlideUrlLoader
+import nyc.vonley.leakthis.BuildConfig
 import nyc.vonley.leakthis.util.SharedPreferenceManager
 import java.io.InputStream
 
@@ -28,8 +29,9 @@ class HeaderModelLoadFactory : BaseGlideUrlLoader<String> {
         val builder = LazyHeaders.Builder()
         if(manager != null && manager!!.hasCookies()) {
             val string =  manager!!.getCookieString()
-
-            Log.e("HeaderModelLoadFactory", "Cookie: ${string}")
+            if(BuildConfig.LOG) {
+                Log.e("HeaderModelLoadFactory", "Cookie: ${string}")
+            }
             return builder
                 .addHeader("Cookie", string)
                 .build()

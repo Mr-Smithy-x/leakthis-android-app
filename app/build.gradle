@@ -40,7 +40,7 @@ android {
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,6 +49,7 @@ android {
             signingConfig signingConfigs.production
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("Boolean", "LOG", "false")
             buildConfigField("String", "BASE_URL", sprintf('"%s"', production_url))
             buildConfigField("String", "PREFERENCE_FILE", sprintf('"%s"', preferences))
             buildConfigField("String", "DATABASE_FILE", sprintf('"%s"', db))
@@ -57,6 +58,7 @@ android {
             })
         }
         debug {
+            buildConfigField("Boolean", "LOG", "true")
             buildConfigField("String", "BASE_URL", sprintf('"%s"', debug_url))
             buildConfigField("String", "PREFERENCE_FILE", sprintf('"%s"', preferences))
             buildConfigField("String", "DATABASE_FILE", sprintf('"%s"', db))
@@ -65,6 +67,7 @@ android {
             })
         }
         local {
+            buildConfigField("Boolean", "LOG", "true")
             buildConfigField("String", "BASE_URL", sprintf('"%s"', local_url))
             buildConfigField("String", "PREFERENCE_FILE", sprintf('"%s"', preferences))
             buildConfigField("String", "DATABASE_FILE", sprintf('"%s"', db))

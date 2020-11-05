@@ -39,30 +39,30 @@ class ThreadActivity : AppCompatActivity(), ThreadContract.View, View.OnClickLis
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_thread)
-        activity_thread_recycler.adapter = ThreadRecyclerAdapter()
-        activity_thread_recycler.addOnScrollListener(object : PaginationScrollListener(
-            activity_thread_recycler.layoutManager as LinearLayoutManager?
-        ) {
-            override fun loadMoreItems() {
-                Toast.makeText(this@ThreadActivity,"Loading more threads...", Toast.LENGTH_SHORT).show()
-                next()
-            }
-
-            override fun getTotalPageCount(): Int {
-                return meta?.last ?: 1
-            }
-
-            override fun isLastPage(): Boolean {
-                return meta?.current == meta?.last
-            }
-
-            override fun isLoading(): Boolean {
-                return false
-            }
-
-        })
         if (intent.hasExtra(KEY)) {
+            setContentView(R.layout.activity_thread)
+            activity_thread_recycler.adapter = ThreadRecyclerAdapter()
+            activity_thread_recycler.addOnScrollListener(object : PaginationScrollListener(
+                activity_thread_recycler.layoutManager as LinearLayoutManager?
+            ) {
+                override fun loadMoreItems() {
+                    Toast.makeText(this@ThreadActivity,"Loading more threads...", Toast.LENGTH_SHORT).show()
+                    next()
+                }
+
+                override fun getTotalPageCount(): Int {
+                    return meta?.last ?: 1
+                }
+
+                override fun isLastPage(): Boolean {
+                    return meta?.current == meta?.last
+                }
+
+                override fun isLoading(): Boolean {
+                    return false
+                }
+
+            })
             val thread: LeakThisForum.Thread = intent.getParcelableExtra(KEY)!!
             activity_thread_section_title.text = thread.topic
             activity_thread_section_desc.text = thread.title
@@ -101,6 +101,7 @@ class ThreadActivity : AppCompatActivity(), ThreadContract.View, View.OnClickLis
                 "Something went horribly wrong. Unable to see the thread :I",
                 Toast.LENGTH_LONG
             ).show()
+            finish()
         }
     }
 
@@ -122,8 +123,8 @@ class ThreadActivity : AppCompatActivity(), ThreadContract.View, View.OnClickLis
         this.meta = meta
     }
 
-    override fun onPostSubmitted(it: LeakThisForum.ThreadPost) {
-        (activity_thread_recycler.adapter as ThreadRecyclerAdapter).addPosts(arrayListOf(it))
+    override fun onPostSubmitted(it: ArrayList<LeakThisForum.ThreadPost>) {
+        (activity_thread_recycler.adapter as ThreadRecyclerAdapter).addPosts(it)
     }
 
     override fun onCommentFailed(comment: String?) {

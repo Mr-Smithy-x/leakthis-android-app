@@ -9,7 +9,7 @@ interface ThreadContract {
 
     interface View: BaseContract.View {
         fun onThreadResponse(it: ArrayList<LeakThisForum.ThreadPost>, meta: LeakThisPagination?)
-        fun onPostSubmitted(it: LeakThisForum.ThreadPost)
+        fun onPostSubmitted(it: ArrayList<LeakThisForum.ThreadPost>)
         fun onCommentFailed(comment: String?)
     }
 

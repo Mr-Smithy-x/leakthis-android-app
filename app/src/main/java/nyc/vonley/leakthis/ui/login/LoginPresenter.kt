@@ -1,6 +1,7 @@
 package nyc.vonley.leakthis.ui.login
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import nyc.vonley.leakthis.base.BasePresenter
@@ -22,7 +23,9 @@ class LoginPresenter @Inject constructor(
                     view.onGuestResponse(response)
                 }
             }catch (e: Exception){
-                e.printStackTrace()
+                withContext(Dispatchers.Main) {
+                    view.onError(e)
+                }
             }
         }
     }
@@ -35,7 +38,9 @@ class LoginPresenter @Inject constructor(
                     view.onGuestResponse(response)
                 }
             }catch (e: Exception){
-                e.printStackTrace()
+                withContext(Dispatchers.Main) {
+                    view.onError(e)
+                }
             }
         }
     }

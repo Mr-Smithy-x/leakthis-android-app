@@ -2,6 +2,7 @@ package nyc.vonley.leakthis.di.network
 
 import android.util.Log
 import com.google.gson.Gson
+import nyc.vonley.leakthis.BuildConfig.*
 import nyc.vonley.leakthis.models.LeakThisProfile
 import nyc.vonley.leakthis.models.User
 import nyc.vonley.leakthis.models.auth.OAuth2
@@ -25,7 +26,9 @@ class GuestInterceptor constructor(val manager: SharedPreferenceManager) : Inter
         request.url(original.url)
         request.method(original.method, original.body)
         val response = chain.proceed(request.build())
-        Log.e("GUEST INTERCEPTOR", original.url.toString())
+        if(LOG) {
+            Log.e("GUEST INTERCEPTOR", original.url.toString())
+        }
         var data: String? = ""
         response.body?.let {
             if (chain.request().url.encodedPath.startsWith("/api/v1/auth")) {
